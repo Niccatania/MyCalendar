@@ -8,7 +8,7 @@ console.log(moment());
 var storageInput = document.querySelector(".form-control");
 var text = document.querySelector(".text");
 var button = document.querySelector(".btn");
-var currentBlock 
+// var currentBlock 
 var currentTime = moment().format('h');
 
 
@@ -21,13 +21,20 @@ console.log(currentTime);
 var allBlocks = ["bl9", "bl10", "bl11", "bl12", "bl13", "bl14", "bl15", "bl16", "bl17"]
 var date = new Date();
 
+
+// Setting a for loop to loop through the hours in the calendar
+
 for( var i=0; i<9; i++ )
 {
-date.setHours(9 + i,0,0,0);
+date.setHours(9 + i);
+
+// date.setHours(9 + i,0,0,0);
 
 var row = document.getElementById(allBlocks[i]);
 
 var currentBlock = moment().diff(date, "hours");
+
+// This if else statement will determine what color should be filled depending on time of the day
 
 if (currentBlock === 0) {
     $(row).addClass("presentTime");
@@ -52,4 +59,5 @@ function btnClick(id){
 var inputText =document.getElementById(id).value;
 localStorage.setItem(id, inputText);
 }
+
 
